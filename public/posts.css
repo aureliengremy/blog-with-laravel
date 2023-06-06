@@ -1,0 +1,10 @@
+body {
+    background-color: rgba(239, 239, 240);
+    max-width: 80vw;
+    margin: auto;
+}
+
+.post {
+    border-bottom: 1px solid grey;
+    padding: 20px 0;
+}
