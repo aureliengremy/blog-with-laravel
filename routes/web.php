@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Post;
+use App\Models\OldPost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,23 +16,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $posts = Post::all();
+    $posts = OldPost::all();
 
-//    ddd($posts);
+//    $document = YamlFrontMatter::parseFile(resource_path('old_posts/first-post.html'));
+//    ddd($document->body());
 
-    return view('posts', [
-        'posts' => Post::all()
+    return view('old_posts', [
+//        'old_posts' => OldPost::all();
+        'old_posts' => $posts
     ]);
 });
 
-Route::get('posts/{post}.html', function ($slug) {
+Route::get('old_posts/{post}', function ($slug) {
 
-    $post = Post::find($slug);
-
+    $post = OldPost::findOrFail($slug);
 
     return view('post', [
         'post' => $post
     ]);
-})->where('post', '[A-z_\-]+');
+});
 
 

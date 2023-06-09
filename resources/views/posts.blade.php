@@ -1,35 +1,27 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/posts.css">
-    <title>Posts</title>
-</head>
-<body>
+@extends('layout')
 
+@section('header')
     <h1>All Posts</h1>
-{{--    <a href="/posts/first-post">First Post</a>--}}
+@endsection
+{{--    <a href="/old_posts/first-post">First OldPost</a>--}}
+{{--    <a href="/old_posts/second-post">Second OldPost</a>--}}
+{{--    <a href="/old_posts/third-post">Third OldPost</a>--}}
 
-{{--    <a href="/posts/second-post">Second Post</a>--}}
+@section('content')
+    @foreach ($posts as $post)
+{{--        <div class="post">--}}
+{{--            <a href="/old_posts/<?= $post[0] ?>">--}}
+{{--                <?= $post[0] ?>--}}
+{{--            </a>--}}
 
-{{--    <a href="/posts/third-post">Third Post</a>--}}
+{{--                <?= $post[1] ?>--}}
 
-
-    <?php foreach ($posts as $post) : ?>
+{{--        </div>--}}
         <div class="post">
-            <a href="/posts/<?= $post[0] ?>">
-                <?= $post[0] ?>
+            <a href="/posts/{{ $post->slug }}">
+                {{ $post->title }}
             </a>
-
-                <?= $post[1] ?>
-
+            <p>{{ $post->excerpt }}</p>
         </div>
-    <?php endforeach ?>
-
-
-
-</body>
-</html>
+    @endforeach
+@endsection
