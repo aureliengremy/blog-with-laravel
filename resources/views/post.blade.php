@@ -11,6 +11,6 @@
     </div>
 
 
-    <a href="/">Back</a>
+    <a href="/" style="display: block;margin-top: 10px;">Back</a>
 @endsection
 
