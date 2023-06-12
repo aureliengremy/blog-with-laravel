@@ -8,9 +8,13 @@
     @foreach ($posts as $post)
 
         <div class="post">
-            <a href="/posts/{{ $post->slug }}">
-                {{ $post->title }}
-            </a>
+            <h1>
+                <a href="/posts/{{ $post->slug }}">
+                    {{ $post->title }}
+                </a>
+            </h1>
+            <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+
             <p>{{ $post->excerpt }}</p>
         </div>
     @endforeach
