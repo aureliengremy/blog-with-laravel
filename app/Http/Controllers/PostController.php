@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index()
     {
         // "filter" is a Scope method from the Model Post
-        $posts = Post::latest()->filter()->get();
+        $posts = Post::latest()->filter(request(['search', 'category']))->get();
 
         return view('posts', [
             'posts' => $posts
