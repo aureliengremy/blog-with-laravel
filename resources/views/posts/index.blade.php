@@ -1,7 +1,7 @@
 @extends('components.layout')
 
-@include('_posts-nav')
-@include('_posts-header')
+@include('components/nav')
+@include('posts/header')
 
 @section('content')
     <div class="lg:grid lg:grid-cols-3">
@@ -44,7 +44,7 @@
                                 <img src="/images/lary-avatar.svg" alt="Lary avatar">
                                 <div class="ml-3">
                                     <h5 class="font-bold"><a
-                                            href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
+                                            href="/?authors={{ $post->author->username }}">{{ $post->author->name }}</a>
                                     </h5>
                                 </div>
                             </div>

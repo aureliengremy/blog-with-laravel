@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -10,16 +11,18 @@ class PostController extends Controller
     public function index()
     {
         // "filter" is a Scope method from the Model Post
-        $posts = Post::latest()->filter(request(['search', 'category']))->get();
+        $posts = Post::latest()->filter(request(['search', 'category', 'author']))->get();
+        $categories = Category::all();
 
-        return view('posts', [
-            'posts' => $posts
+        return view('posts.index', [
+            'posts' => $posts,
+            'categories' => $categories
         ]);
     }
 
     public function show(Post $post)
     {
-        return view('post', [
+        return view('posts.show', [
             'post' => $post
         ]);
     }
