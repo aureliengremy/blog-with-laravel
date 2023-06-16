@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         // "filter" is a Scope method from the Model Post
-        $posts = Post::latest()->filter(request(['search', 'category', 'author']))->get();
+        $posts = Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString();
         $categories = Category::all();
 
         return view('posts.index', [

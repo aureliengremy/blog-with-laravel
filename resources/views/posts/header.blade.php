@@ -13,9 +13,9 @@
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">
         <!--  Category -->
-        <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
+        <div class="relative flex items-center bg-gray-100 rounded-xl my-3">
 
-            <div class="flex justify-evenly w-full">
+            <div class="flex justify-evenly w-full py-3">
                 <a href="/?{{ http_build_query(request()->except('category', 'page')) }}">All Category</a>
                 @foreach($categories as $category)
                     <a href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category', 'page')) }}">{{ $category->name }}</a>

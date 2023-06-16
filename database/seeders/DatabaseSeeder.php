@@ -42,17 +42,29 @@ class DatabaseSeeder extends Seeder
             'slug'=>'professional'
         ]);
 
-        Post::factory(3)->create([
+        Post::factory(7)->create([
             'user_id'=>$userOne->id,
             'category_id'=>$categoryOne->id,
         ]);
-        Post::factory(2)->create([
+        Post::factory(3)->create([
+            'user_id'=>$userOne->id,
+            'category_id'=>$categoryTwo->id,
+        ]);
+        Post::factory(4)->create([
+            'user_id'=>$userTwo->id,
+            'category_id'=>$categoryOne->id,
+        ]);
+        Post::factory(6)->create([
             'user_id'=>$userTwo->id,
             'category_id'=>$categoryTwo->id,
         ]);
-        Post::factory(1)->create([
+        Post::factory(5)->create([
             'user_id'=>$userThird->id,
             'category_id'=>$categoryOne->id,
+        ]);
+        Post::factory(5)->create([
+            'user_id'=>$userThird->id,
+            'category_id'=>$categoryTwo->id,
         ]);
 
 
