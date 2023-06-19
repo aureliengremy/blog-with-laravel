@@ -66,7 +66,34 @@
             </div>
         </div>
     </article>
-    </main>
+
+    <article>
+        <div class="flex flex-col w-full m-6 mx-auto rounded-md bg-gray-100">
+            <div class="flex justify-between p-4">
+                <div class="flex-none">
+                    <div>
+                        <img src="https://source.unsplash.com/100x100/?portrait" alt=""
+                             class="object-cover w-12 h-12 rounded-full dark:bg-gray-500">
+                    </div>
+                </div>
+                <div class="grow">
+                    <div class="px-4 space-y-2 ">
+                        <h4 class="font-bold">Leroy Jenkins</h4>
+                        <span class="text-xs">Posted 2 days ago</span>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm">
+                        <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat
+                            vitae. Etiam ut dolor id justo fringilla finibus.</p>
+                        <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis.
+                            Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus
+                            rutrum sem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </article>
+
 
     <div class="lg:hidden mt-8">
         <a href="/"

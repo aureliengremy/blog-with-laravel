@@ -18,7 +18,7 @@
         @extends('components.footer')
 </section>
 @if(session()->has('success'))
-    <div class="fixed bottom-5 right-2">
+    <div class="fixed bottom-5 right-2 py-2 px-4 rounded bg-green-400">
         <p>{{ session()->get('success') }}</p>
     </div>
 @endif
