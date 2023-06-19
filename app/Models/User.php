@@ -43,6 +43,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Accessor method for the Username :
+    public function getUsernameAttribute($username)
+    {
+        return ucwords($username);
+    }
+
+   // Mutator method for the password :
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

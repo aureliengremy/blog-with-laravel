@@ -17,5 +17,11 @@
     </main>
         @extends('components.footer')
 </section>
+@if(session()->has('success'))
+    <div class="fixed bottom-5 right-2">
+        <p>{{ session()->get('success') }}</p>
+    </div>
+@endif
+
 </body>
 </html>
