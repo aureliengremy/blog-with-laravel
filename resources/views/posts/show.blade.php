@@ -23,7 +23,7 @@
             </p>
 
             <div class="flex items-center lg:justify-center text-sm mt-4">
-                <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                <img src="https://source.unsplash.com/100x100/?portrait/{{ $post->user_id }}" alt="Lary avatar" class="rounded">
                 <div class="ml-3 text-left">
                     <h5 class="font-bold"><a
                             href="/?authors={{ $post->author->username }}">{{ $post->author->name }}</a>
@@ -66,33 +66,26 @@
             </div>
         </div>
     </article>
+    @if($post->comments->count() > 3)
+        <div class="lg:hidden mt-8">
+            <a href="/"
+               class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
+                <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
+                    <g fill="none" fill-rule="evenodd">
+                        <path stroke="#000" stroke-opacity=".012" stroke-width=".5" d="M21 1v20.16H.84V1z">
+                        </path>
+                        <path class="fill-current"
+                              d="M13.854 7.224l-3.847 3.856 3.847 3.856-1.184 1.184-5.04-5.04 5.04-5.04z">
+                        </path>
+                    </g>
+                </svg>
 
-    <article>
-        <div class="flex flex-col w-full m-6 mx-auto rounded-md bg-gray-100">
-            <div class="flex justify-between p-4">
-                <div class="flex-none">
-                    <div>
-                        <img src="https://source.unsplash.com/100x100/?portrait" alt=""
-                             class="object-cover w-12 h-12 rounded-full dark:bg-gray-500">
-                    </div>
-                </div>
-                <div class="grow">
-                    <div class="px-4 space-y-2 ">
-                        <h4 class="font-bold">Leroy Jenkins</h4>
-                        <span class="text-xs">Posted 2 days ago</span>
-                    </div>
-                    <div class="p-4 space-y-2 text-sm">
-                        <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat
-                            vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                        <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis.
-                            Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus
-                            rutrum sem.</p>
-                    </div>
-                </div>
-            </div>
+                Back to Posts
+            </a>
         </div>
-        </div>
-    </article>
+    @endif
+
+    @include('components._comment')
 
 
     <div class="lg:hidden mt-8">

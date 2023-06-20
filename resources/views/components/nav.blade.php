@@ -28,7 +28,7 @@
 {{--        <a href="/register" class="text-xs font-bold uppercase hover:opacity-50">Register</a>--}}
 {{--        @endguest--}}
 
-        <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+        <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
             Subscribe for Updates
         </a>
     </div>
