@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //disable foreign key check for this connection before running seeders
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         User::truncate();
         Post::truncate();
         Category::truncate();
+
 
          $userOne = User::factory()->create([
              'username'=>'JohnDoe87',
@@ -66,6 +71,10 @@ class DatabaseSeeder extends Seeder
             'user_id'=>$userThird->id,
             'category_id'=>$categoryTwo->id,
         ]);
+
+        // supposed to only apply to a single connection and reset it's self
+        // but I like to explicitly undo what I've done for clarity
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
 
 
