@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -25,5 +26,35 @@ class PostController extends Controller
         return view('posts.show', [
             'post' => $post
         ]);
+    }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $attributes = $request->validate([
+            'title'=>'required',
+            'slug'=> ['required', Rule::unique('posts', 'slug')],
+            'excerpt'=>'required',
+            'body'=>'required',
+            'category_id'=>['required', Rule::exists('categories', 'id')],
+        ]);
+
+//        $post = new Post($attributes);
+//        $post->user_id = auth()->id();
+//
+//        $post->save();
+
+        auth()->user()->posts()->create($attributes);
+
+//        Post::create([
+//            'user_id' => auth()->id(),
+//            $attributes
+//        ]);
+
+        return redirect('/');
     }
 }
